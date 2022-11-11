@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity CookOrders.
+    -->
+    <changeSet id="20221111173520-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="cook_orders_id"
+                                 baseTableName="rel_cook_orders__cook_transactions"
+                                 constraintName="fk_rel_cook_orders__cook_transactions__cook_orders_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cook_orders"/>
+
+        <addForeignKeyConstraint baseColumnNames="cook_transactions_id"
+                                 baseTableName="rel_cook_orders__cook_transactions"
+                                 constraintName="fk_rel_cook_orders__cook_transactions__cook_transactions_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cook_transactions"/>
+    </changeSet>
+</databaseChangeLog>
